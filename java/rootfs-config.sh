@@ -13,13 +13,19 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Pythia.  If not, see <http://www.gnu.org/licenses/>.
 
-ENV_OUT_DIR := $(VM_OUT_DIR)
+# Install busybox
+install_busybox
 
-# The environments target is filled by the subdirectories
-$(call add_target,environments,BUILD,Generate all environments)
-all: environments
-environments:
+# Java OpenJDK7
+install_debs openjdk-7-jdk openjdk-7-jre java-common openjdk-7-jre-lib openjdk-7-jre-headless
 
-$(call include_subdirs, busybox python java)
+# Base libraries
+install_debs libc6 libglib2.0-0 libgcc1 libstdc++6
 
-# vim:set ts=4 sw=4 noet:
+# Additional libraries
+install_debs zlib1g libasound2 libatk-wrapper-java-jni libatk1.0-0 libcairo2 \
+             libcups2 libfontconfig1 libfreetype6 libgdk-pixbuf2.0-0 libgif4 \
+             libgl1-mesa-glx libgtk2.0-0 libjpeg62-turbo libpango-1.0-0 \
+             libpangocairo-1.0-0 libpangoft2-1.0-0 libpng12-0 \
+             multiarch-support ca-certificates-java libkrb5-3 liblcms2-2 \
+             libnss3 libpcsclite1 libpulse0 tzdata-java

@@ -13,13 +13,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Pythia.  If not, see <http://www.gnu.org/licenses/>.
 
-ENV_OUT_DIR := $(VM_OUT_DIR)
+ENV_JAVA := $(ENV_OUT_DIR)/java.sfs
 
-# The environments target is filled by the subdirectories
-$(call add_target,environments,BUILD,Generate all environments)
-all: environments
-environments:
+environments: $(ENV_JAVA)
 
-$(call include_subdirs, busybox python java)
+$(ENV_JAVA): $~/rootfs-config.sh $(MKROOTFS_DEPS)
+	@mkdir -p $(@D)
+	$(MKROOTFS) -o $@ $<
 
 # vim:set ts=4 sw=4 noet:
