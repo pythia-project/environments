@@ -1,4 +1,4 @@
-# Copyright 2015 The Pythia Authors.
+# Copyright 2013 The Pythia Authors.
 # This file is part of Pythia.
 #
 # Pythia is free software: you can redistribute it and/or modify
@@ -13,13 +13,16 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Pythia.  If not, see <http://www.gnu.org/licenses/>.
 
-ENV_OUT_DIR := $(VM_OUT_DIR)
+# The busybox environment contains only busybox.
+install_busybox
 
-# The environments target is filled by the subdirectories
-$(call add_target,environments,BUILD,Generate all environments)
-all: environments
-environments:
+# gcc 4.9, make
+install_debs multiarch-support gcc gcc-4.9-base cpp gcc-4.9 cpp-4.9 binutils libgcc-4.9-dev
 
-$(call include_subdirs, busybox python java mono c)
+# Base librairies
+install_debs libc6 libgcc1
 
-# vim:set ts=4 sw=4 noet:
+# Additional libraries
+install_debs libcloog-isl4 libgmp10 libisl10 libmpc3 libmpfr4 zlib1g libgomp1 \
+             libitm1 libatomic1 libasan1 libubsan0 libcilkrts5 libquadmath0 \
+             libstdc++6 libc-dev-bin linux-libc-dev libc6-dev

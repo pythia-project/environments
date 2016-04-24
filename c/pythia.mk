@@ -1,4 +1,4 @@
-# Copyright 2015 The Pythia Authors.
+# Copyright 2013 The Pythia Authors.
 # This file is part of Pythia.
 #
 # Pythia is free software: you can redistribute it and/or modify
@@ -13,13 +13,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Pythia.  If not, see <http://www.gnu.org/licenses/>.
 
-ENV_OUT_DIR := $(VM_OUT_DIR)
+ENV_C := $(ENV_OUT_DIR)/c.sfs
 
-# The environments target is filled by the subdirectories
-$(call add_target,environments,BUILD,Generate all environments)
-all: environments
-environments:
+environments: $(ENV_C)
 
-$(call include_subdirs, busybox python java mono c)
+$(ENV_C): $~/rootfs-config.sh $(MKROOTFS_DEPS) $(C)
+	@mkdir -p $(@D)
+	$(MKROOTFS) -o $@ $<
 
 # vim:set ts=4 sw=4 noet:

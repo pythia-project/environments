@@ -7,3 +7,4 @@ This repository contains environments for the Pythia platform. Available environ
 - Java (OpenJDK 7)
 - Mono (Mono 3.2.8)
 - Python (Python 3.4)
+- C (gcc 4.9)
