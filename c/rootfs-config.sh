@@ -17,7 +17,7 @@
 install_busybox
 
 # gcc 4.9, make
-install_debs multiarch-support gcc gcc-4.9-base cpp gcc-4.9 cpp-4.9 binutils libgcc-4.9-dev
+install_debs multiarch-support gcc gcc-4.9-base cpp gcc-4.9 cpp-4.9 binutils libgcc-4.9-dev make
 
 # Base librairies
 install_debs libc6 libgcc1
@@ -26,3 +26,7 @@ install_debs libc6 libgcc1
 install_debs libcloog-isl4 libgmp10 libisl10 libmpc3 libmpfr4 zlib1g libgomp1 \
              libitm1 libatomic1 libasan1 libubsan0 libcilkrts5 libquadmath0 \
              libstdc++6 libc-dev-bin linux-libc-dev libc6-dev
+
+# symbolic link cc to gcc to be able to run make
+cd usr/bin
+ln -s gcc cc
