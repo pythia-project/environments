@@ -15,11 +15,23 @@
 
 ENV_OUT_DIR := $(VM_OUT_DIR)
 
+ENV_GO_DIR := $~/test
+ENV_BIND_DIR := $(GO_DIR)/bin
+ENV_GOPATH := "$(abspath $(ENV_GO_DIR)):$(abspath $(GO_DIR))"
+ENV_GO := GOPATH=$(ENV_GOPATH) go
+
+ENV_GO_PACKAGES := env_test
+
 # The environments target is filled by the subdirectories
 $(call add_target,environments,BUILD,Generate all environments)
 all: environments
 environments:
 
 $(call include_subdirs, busybox python java mono c)
+
+$(call add_target,envtest,MISC,Run environments tests)
+check: envtest
+envtest:
+	$(ENV_GO) test $(ENV_GO_PACKAGES)
 
 # vim:set ts=4 sw=4 noet:
