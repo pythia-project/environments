@@ -20,6 +20,6 @@ $(call add_target,environments,BUILD,Generate all environments)
 all: environments
 environments:
 
-$(call include_subdirs, busybox python java mono c)
+$(call include_subdirs, busybox python java mono c octave)
 
 # vim:set ts=4 sw=4 noet:
