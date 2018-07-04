@@ -1,10 +1,11 @@
 # environments
-This repository contains environments for the Pythia platform. Available environments are built with *Debian jessie* packages.
+This repository contains environments for the Pythia platform.
+Available environments are built with *Debian stretch* packages.
 
 ## Available environments
 
 - Busybox
 - Java (OpenJDK 7)
 - Mono (Mono 3.2.8)
-- Python (Python 3.4)
+- Python (Python 3.5.3-1)
 - C (gcc 4.9)
