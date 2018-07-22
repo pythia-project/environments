@@ -6,6 +6,6 @@ Available environments are built with *Debian stretch* packages.
 
 - Busybox
 - Java (OpenJDK 8)
-- Mono (Mono 3.2.8)
+- Mono (Mono 4.6.2.7)
 - Python (Python 3.5.3-1)
 - C (GCC 4.3)
