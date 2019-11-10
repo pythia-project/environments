@@ -1,4 +1,4 @@
-# Copyright 2015-2019 The Pythia Authors.
+# Copyright 2019 The Pythia Authors.
 # This file is part of Pythia.
 #
 # Pythia is free software: you can redistribute it and/or modify
@@ -13,13 +13,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Pythia.  If not, see <http://www.gnu.org/licenses/>.
 
-ENV_OUT_DIR := $(VM_OUT_DIR)
+# Bash 4.4
+install_debs bash dash
 
-# The environments target is filled by the subdirectories
-$(call add_target,environments,BUILD,Generate all environments)
-all: environments
-environments:
+# Base libraries
+install_debs libc6 libgcc1
 
-$(call include_subdirs, bash busybox c golang java lua mono python)
+# Additional libraries
+install_debs libtinfo5
 
-# vim:set ts=4 sw=4 noet:

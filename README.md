@@ -4,6 +4,8 @@ Available environments are built with *Debian stretch* packages.
 
 ## Available environments
 
+- Bash (Bash 4.4)
+
 - Busybox
 
 - C (GCC 4.3)
