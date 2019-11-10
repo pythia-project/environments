@@ -8,6 +8,8 @@ Available environments are built with *Debian stretch* packages.
 
 - C (GCC 4.3)
 
+- Go (Golang 1.7)
+
 - Java (OpenJDK 8)
 
 - Lua (Lua 5.3)
