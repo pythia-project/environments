@@ -21,4 +21,3 @@ install_debs golang-1.7 golang-go golang-1.7-go golang-src golang-1.7-src
 
 # Base libraries
 install_debs libc6
-

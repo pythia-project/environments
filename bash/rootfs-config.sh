@@ -21,4 +21,3 @@ install_debs libc6 libgcc1
 
 # Additional libraries
 install_debs libtinfo5
-
